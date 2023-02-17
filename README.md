@@ -1,7 +1,7 @@
 # Automatisation du Sandboxing Toolset de RAISEGUARD
 ###EQUIPE : 
 - **TEKUP :** Askri Wiem askriwiam6@gmail.com 
-- **ISI Ariana :** Jihen Oueslati jihen.weslati@etudiant-isi.utm.tn 
+- **TEKUP :** Skander Korbi
 - **ISET COM :**
     * Ala Ben Saad ala.bensaad@edu.isetcom.tn 
 	* Sirine Hammemi sirine.hammami@edu.isetcom.tn
