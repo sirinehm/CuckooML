@@ -1,0 +1,14 @@
+2023-05-25 14:38:38,012 [analyzer] DEBUG: Starting analyzer from: C:\tmpgqe5sb
+2023-05-25 14:38:38,217 [analyzer] DEBUG: Pipe server name: \??\PIPE\KKquZbsUUnDljiGrUyaQ
+2023-05-25 14:38:38,217 [analyzer] DEBUG: Log pipe server name: \??\PIPE\qVUYogtbSIeeTEmwivjveMXPrVBlo
+2023-05-25 14:38:41,947 [analyzer] DEBUG: Started auxiliary module DbgView
+2023-05-25 14:38:42,967 [analyzer] DEBUG: Started auxiliary module Disguise
+2023-05-25 14:38:44,334 [analyzer] DEBUG: Loaded monitor into process with pid 608
+2023-05-25 14:38:44,334 [analyzer] DEBUG: Started auxiliary module DumpTLSMasterSecrets
+2023-05-25 14:38:44,334 [analyzer] DEBUG: Started auxiliary module Human
+2023-05-25 14:38:44,334 [analyzer] DEBUG: Started auxiliary module InstallCertificate
+2023-05-25 14:38:44,400 [analyzer] DEBUG: Started auxiliary module Reboot
+2023-05-25 14:38:44,677 [analyzer] DEBUG: Started auxiliary module RecentFiles
+2023-05-25 14:38:44,677 [analyzer] DEBUG: Started auxiliary module Screenshots
+2023-05-25 14:38:44,677 [modules.auxiliary.screenshots] INFO: Python Image Library (either PIL or Pillow) is not installed, screenshots are disabled.
+2023-05-25 14:38:44,677 [analyzer] DEBUG: Started auxiliary module LoadZer0m0n

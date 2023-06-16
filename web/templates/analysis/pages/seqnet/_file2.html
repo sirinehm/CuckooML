@@ -1,0 +1,256 @@
+{% load analysis_tags %}
+<section id="file">
+      {% if report.analysis.target.file_id %}
+    <div class="panel-heading" style="height: 40px">
+        <h4 class="panel-title">Detection with Network Traffic</h4>
+    </div>
+    {% endif %}
+  <div class="panel panel-default">
+
+    <div class="panel-heading" style="background-color:skyblue;">
+        Sammury
+    </div>
+    
+
+    <table class="table table-striped">
+      <tr>
+        <th class="text-left">Family</th>
+        <td>
+          <ul style="margin-bottom: 0">
+            <li>{{ report.analysis.networkML.family }}</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="text-left">probabilities</th>
+        <td>
+          {% if report.analysis.networkML.proba %}
+          <ul style="margin-bottom: 0">
+            {% for proba_list in report.analysis.networkML.proba %}
+                {% if '0.0' not in proba_list %}
+                  <li> 
+                        {{ proba_list }} 
+                  </li>
+                {% endif %}
+            {% endfor %}
+          </ul>
+          {% else %} None probabilities {% endif %}
+        </td>
+      </tr>
+
+
+    </table>
+  </div>
+
+          {% if report.analysis.target.file_id %}
+        <div class="panel-heading" style="height: 40px">
+        <h4 class="panel-title">Detection with Sequence API calls</h4>
+        </div>
+        {% endif %}
+        <div class="panel panel-default">
+        <div class="panel-heading" style="background-color:skyblue;">
+                    Sammury
+        </div>
+        <table class="table table-striped">
+            <tr>
+                <th class="text-left">Family</th>
+                <td>{{ report.analysis.api_call_seqML.family }}</td>
+            </tr>
+            <tr>
+                <th class="text-left">Confidence</th>
+                <td>{{ report.analysis.api_call_seqML.confidence }}</td>
+            </tr>
+
+            <tr>
+                <th class="text-left">Probabilities</th>
+                <td>
+                    {% if report.analysis.api_call_seqML.proba %}
+                        <ul style="margin-bottom: 0;">
+                            {% for proba_list in report.analysis.api_call_seqML.proba %}
+                                <li>{{ proba_list }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        None probabilities
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        </div>
+</section>
+<br>
+<hr>
+<div class="processes tabbable">
+
+    <div class="tab-content">
+ 
+    {% for process in report.analysis.behavior.processes|filter_key_if_has:"track" %}
+        <div class="tab-pane {% if forloop.first %}active{% endif %}" id="process_{{process.pid}}" data-pid="{{process.pid}}" data-length="{{process.calls|length}}">
+            <div class="alert alert-info" style="background-color: skyblue;color: black;padding: 10px;border: 1px solid skyblue;" ><b>{{process.process_name}}</b>, PID: <b>{{process.pid}}</b>, Parent PID: {{process.ppid}}</div>
+            <br>
+            <p style="text-align: left;">
+                <a id="badge_default_{{process.pid}}" class="badge default" style="background-color: #007bff; color:black; padding: 10px 20px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">General</a>
+                <a id="badge_process_{{process.pid}}" class="badge process" style="background-color: #6c757d; color:black; padding: 10px 20px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">Process</a>
+                <a id="badge_network_{{process.pid}}" class="badge network" style="background-color: #28a745; color:black; padding: 10px 20px; border: none; border-radius: 4px; font-size: 16px; cursor: pointer;">Network</a>
+            </p>
+            <br>
+            
+            <script type="text/javascript">
+            $(document).ready(function()
+            {   $("#badge_default_{{process.pid}}").click(function() { load_chunk({{process.pid}}, 1); });
+                $("#badge_process_{{process.pid}}").click(function() { load_filtered_chunk({{process.pid}}, "process"); });
+                $("#badge_network_{{process.pid}}").click(function() { load_filtered_chunk({{process.pid}}, "network"); });
+                
+
+                $('.tab-content').on('click', '.call-link', function (event) {
+                    cid = $(this).attr('data-cid');
+                    pid = $(this).attr('data-pid');
+                    go_to_api_call(+pid, +cid);
+
+                    event.preventDefault();
+                });
+            });
+            </script>
+
+            {% include 'components/loader.html' %}
+
+            <div class="calltable"></div>
+            <div class="pagination pagination-centered pagination_{{process.pid}}">
+                <ul class="pagination">
+                </ul>
+            </div>
+
+        </div>
+
+        {% if forloop.first %}
+            <script type="text/javascript" defer>
+                $(function() {
+                    load_chunk({{ process.pid }}, 1);
+                });
+            </script>
+        {% endif %}
+
+    {% endfor %}
+    </div>
+</div>
+
+
+<script type="text/javascript">
+
+    var loader = new Loader($('.loading'));
+
+    function paginationbar(pages, page) {
+        if (pages === 0) return "";
+
+        function alert_current_page (i, page) {
+            if (i == page) return " class=\"active\"";
+            return "";
+        }
+
+        var out = "";
+        out += "<li"+alert_current_page(1, page)+"><a href=\"#\">1</a></li>";
+
+        if (page-10 > 2) out += "<li><span>...</span></li>";
+
+        for (i = Math.max(2, page-10); i <= Math.min(pages-1, page+10); i++) {
+            out += "<li"+alert_current_page(i, page)+"><a href=\"#\">" + i + "</a></li>";
+        }
+
+        if (page+10 < pages-1) out += "<li><span>...</span></li>";
+
+        if (pages > 1)
+            out += "<li"+alert_current_page(pages, page)+"><a href=\"#\">"+pages+"</a></li>";
+        return out;
+    }
+
+    function load_chunk(pid, pagenum, callback) {
+
+        if(!loader.loading) {
+            loader.start('loading behavioral analysis');
+        }
+
+        $("#process_"+pid+" div.calltable").load("{% url "analysis/recent" %}chunk/{{report.analysis.info.id}}/"+pid+"/"+pagenum+"/", function(data, status, xhr){
+            if (status == "error") {
+                $("#process_"+pid+" div.calltable").html("Error loading data. Please reload the page and if the error persists contact us.");
+            }
+            else {
+                $("#process_"+pid+" div.pagination ul").html(paginationbar(parseInt($("#process_"+pid).data("length")), pagenum));
+                $("#process_"+pid+" div.pagination a").click(function(e) {
+                    var t = $(e.target);
+                    load_chunk(t.parents("#process_"+pid).data("pid"), parseInt(t.text()));
+                });
+
+                loader.stop();
+                typeof callback === 'function' && callback();
+            }
+        });
+
+    }
+
+    function show_tab(id, callback) {
+        // First, see if tab is already active. If it is, just run the callback
+        if ($('#' + id).hasClass('active')) {
+            typeof callback === 'function' && callback();
+        }
+        // Else, show the tab and run the callback once the tab is shown
+        else {
+            // Wait for tab to be shown
+            $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+                if ($(e.target).attr('href') == '#' + id) {
+                    $('a[data-toggle="tab"]').off('shown.bs.tab');
+                    typeof callback === 'function' && callback();
+                }
+            });
+
+            // Show the tab
+            $('a[href="#' + id + '"]').tab('show');
+        }
+    }
+
+    function go_to_api_call(pid, call_id) {
+        // Load corresponding chunk
+        pagenum = Math.floor(call_id / 100) + 1;
+        load_chunk(pid, pagenum, function () {
+            // Show behavior tab
+            show_tab('behavior', function () {
+                // Show process tab
+                show_tab('process_' + pid, function () {
+                    // Scroll to call
+                    $('#call_' + call_id).get(0).scrollIntoView(false);
+                });
+            });
+        });
+    }
+
+    function load_filtered_chunk(pid, category) {
+
+        loader.start('loading ' + category);
+
+        $("#process_"+pid+" div.calltable").load("{% url "analysis/recent" %}filtered/{{report.analysis.info.id}}/"+pid+"/"+category+"/", function(data, status, xhr){
+
+            if (status == "error") {
+                $("#process_"+pid+" div.calltable").html("Error loading data. Please reload the page and if the error persists contact us.");
+            }
+
+            else {
+                $("#process_"+pid+" div.pagination ul").html(paginationbar(0, 0));
+                $("#process_"+pid+" div.pagination a").click(function(e) {
+                    var t = $(e.target);
+                    load_chunk(t.parents("#process_"+pid).data("pid"), parseInt(t.text()));
+                });
+            }
+
+            loader.stop();
+
+        });
+    }
+
+    $('div.processes a.process[data-toggle="tab"]').on('show.bs.tab', function (e) {
+        var pid = $(e.target).data("pid");
+        // $("#process_"+pid+" div.calltable").html("Loading..");
+        load_chunk(pid, 1);;
+    });
+
+</script>
+

@@ -1,0 +1,73 @@
+{% load analysis_tags %}
+<section id="static_analysis">
+    {% if report.analysis.pdfML %}
+
+        
+        {% if report.analysis.target.file_id %}
+        <div class="panel-heading" style="height: 40px">
+        <h4 class="panel-title">Analysis PDF </h4>
+        </div>
+        {% endif %}
+        <div class="panel panel-default">
+        <div class="panel-heading" style="background-color:skyblue;">
+                    Sammury
+        </div>
+        <table class="table table-striped">
+            <tr>
+                <th class="text-left">Family</th>
+                <td>{{ report.analysis.pdfML.family }}</td>
+            </tr>
+            <tr>
+                <th class="text-left">Confidence</th>
+                <td>{{ report.analysis.pdfML.confidence }}</td>
+            </tr>
+
+            <tr>
+                <th class="text-left">Probabilities</th>
+                <td>
+                    {% if report.analysis.pdfML.proba %}
+                        <ul style="margin-bottom: 0;">
+                            {% for proba_list in report.analysis.pdfML.proba %}
+                                <li>{{ proba_list }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        None probabilities
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        </div>
+        <br>
+        
+        <div class="panel-heading" style="height: 40px">
+        <h4 class="panel-title">Information About Files</h4>
+        </div>
+
+        <br>
+        <div class="panel panel-default">
+        <table class="table table-striped">
+
+        <div class="panel-heading" style="background-color:skyblue;">
+            Sammury
+        </div>
+        {% if report.analysis.pdfML.features %}
+            {% for feat in report.analysis.pdfML.features %}
+                <tr>
+                    <th class="text-left">{{ feat.key }}</th>
+                    <td>{{ feat.value }}</td>
+                </tr>
+            {% endfor %}
+        {% else %}
+            None Detected features
+        {% endif %}
+             
+
+        </table>
+        </div>
+
+        <br>
+    {% endif %}
+
+
+</section>

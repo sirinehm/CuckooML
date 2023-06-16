@@ -1,0 +1,205 @@
+{% load analysis_tags %}
+<section id="static_analysis">
+    {% if report.analysis.staticML %}
+
+        
+        {% if report.analysis.target.file_id %}
+        <div class="panel-heading" style="height: 40px">
+        <h4 class="panel-title">Detection with static analysis</h4>
+        </div>
+        {% endif %}
+        <div class="panel panel-default">
+        <div class="panel-heading" style="background-color:skyblue;">
+                    Sammury
+        </div>
+        <table class="table table-striped">
+            <tr>
+                <th class="text-left">Family</th>
+                <td>{{ report.analysis.staticML.family }}</td>
+            </tr>
+            <tr>
+                <th class="text-left">Confidence</th>
+                <td>{{ report.analysis.staticML.confidence }}</td>
+            </tr>
+
+            <tr>
+                <th class="text-left">Probabilities</th>
+                <td>
+                    {% if report.analysis.staticML.proba %}
+                        <ul style="margin-bottom: 0;">
+                            {% for proba_list in report.analysis.staticML.proba %}
+                                <li>{{ proba_list }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        None probabilities
+                    {% endif %}
+                </td>
+            </tr>
+            
+            <tr>
+                <th class="text-left">Detected Capabilities</th>
+                <td>
+                    {% if report.analysis.staticML.detected_capabilities %}
+                        <ul style="margin-bottom: 0;">
+                            {% for cap_dict in report.analysis.staticML.detected_capabilities %}
+                                <li>{{ cap_dict.capability }} - {{ cap_dict.description }}</li>
+                            {% endfor %}
+                        </ul>
+                    {% else %}
+                        None Detected Capabilities
+                    {% endif %}
+                </td>
+            </tr>
+        </table>
+        </div>
+        <br>
+        
+        <div class="panel-heading" style="height: 40px">
+        <h4 class="panel-title">Information About Files</h4>
+        </div>
+
+        <br>
+        <div class="panel panel-default">
+        <table class="table table-striped">
+
+        <div class="panel-heading" style="background-color:skyblue;">
+            Sammury
+        </div>
+            <tr>
+                <th class="text-right">Shas_manifest</th>
+                {% if report.analysis.target.file_id %}
+                    <td>{{ report.analysis.target.file.size | sizeof_fmt }}</td>
+                {% endif %}
+            </tr>
+            <tr>
+                <th class="text-right">has_aslr</th>
+                <td>{{ report.analysis.target.file.type }}</td>
+            </tr>
+            <tr>
+                <th class="text-right">has_tls</th>
+                <td class="break-everywhere"><tt>{{ report.analysis.target.file.md5 }}</tt></td>
+            </tr>
+            <tr>
+                <th class="text-right">has_dep</th>
+                <td class="break-everywhere"><tt>{{ report.analysis.target.file.sha1 }}</tt></td>
+            </tr>
+            <tr>
+                <th class="text-right">code_integrity</th>
+                <td class="break-everywhere"><tt>{{ report.analysis.target.file.sha256 }}</tt></td>
+            </tr>
+            
+            <tr>
+                <th class="text-right">supports_cfg</th>
+                <td class="break-everywhere"><tt>{{ report.analysis.target.file.ssdeep }}</tt></td>
+            </tr>
+       
+                       
+
+            <tr>
+                <th class="text-right">suspicious_dbgtsize</th>
+                <td><tt>{{ report.analysis.target.file.crc32 }}</tt></td>
+            </tr>
+            <tr>
+                <th class="text-right">isPacked</th>
+                <td class="break-everywhere"><tt>{{ report.analysis.target.file.ssdeep }}</tt></td>
+            </tr>
+            <tr>
+                <th class="text-right">isSigned</th>
+                <td><tt>{{ report.analysis.target.file.crc32 }}</tt></td>
+            </tr>
+
+            <tr>
+                <th class="text-right">Subsystem</th>
+                <td class="break-everywhere"><tt>{{ report.analysis.target.file.ssdeep }}</tt></td>
+            </tr>
+            <tr>
+                <th class="text-right">SizeOfHeaders</th>
+                <td><tt>{{ report.analysis.target.file.crc32 }}</tt></td>
+            </tr>
+            <tr>
+                <th class="text-right">CheckSum</th>
+                <td class="break-everywhere"><tt>{{ report.analysis.target.file.ssdeep }}</tt></td>
+            </tr>
+            
+            <tr>
+                <th class="text-right">NumberOfSections</th>
+                <td><tt>{{ report.analysis.target.file.crc32 }}</tt></td>
+            </tr>
+            
+        </table>
+        </div>
+
+        <br>
+
+
+        
+    {% endif %}
+
+    {% if report.analysis.importss %}
+        
+
+        {% if report.analysis.static.pe_sections %}
+        <div>
+            <h4>Sections</h4>
+            <div id="pe_sections">
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th>Name</th>
+                        <th>Virtual Address</th>
+                        <th>Virtual Size</th>
+                        <th>Size of Raw Data</th>
+                        <th>Entropy</th>
+                    </tr>
+
+                    {% for section in report.analysis.static.pe_sections %}
+                        <tr>
+                            <td>{{section.name}}</td>
+                            <td class="hex_address">{{section.virtual_address}}</td>
+                            <td class="hex_address">{{section.virtual_size}}</td>
+                            <td class="hex_address">{{section.size_of_data}}</td>
+                            <td>{{section.entropy}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <br>
+        {% endif %}
+
+        {% if report.analysis.static.pe_resources %}
+        <div>
+            <h4>Resources</h4>
+            <div id="pe_resources">
+                <table class="table table-striped table-bordered">
+                    <tr>
+                        <th>Name</th>
+                        <th>Offset</th>
+                        <th>Size</th>
+                        <th>Language</th>
+                        <th>Sub-language</th>
+                        <th>File type</th>
+                    </tr>
+                    {% for section in report.analysis.static.pe_resources %}
+                        <tr>
+                            <td>{{section.name}}</td>
+                            <td class="hex_address">{{section.offset}}</td>
+                            <td class="hex_address">{{section.size}}</td>
+                            <td>{{section.language}}</td>
+                            <td>{{section.sublanguage}}</td>
+                            <td>{{section.filetype}}</td>
+                        </tr>
+                    {% endfor %}
+                </table>
+            </div>
+        </div>
+        <br>
+        {% endif %}
+
+
+    {% else %}
+        Nothing to display.
+    {% endif %}
+
+
+</section>

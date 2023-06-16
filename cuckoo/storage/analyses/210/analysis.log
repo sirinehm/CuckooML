@@ -1,0 +1,19 @@
+2023-05-25 00:45:31,006 [analyzer] DEBUG: Starting analyzer from: C:\tmpgqe5sb
+2023-05-25 00:45:31,006 [analyzer] DEBUG: Pipe server name: \??\PIPE\ftBojYeJeQbCQKNHdlmzmnDssD
+2023-05-25 00:45:31,006 [analyzer] DEBUG: Log pipe server name: \??\PIPE\yUhlYdSSBTOrJqtj
+2023-05-25 00:45:32,653 [analyzer] DEBUG: Started auxiliary module DbgView
+2023-05-25 00:45:33,088 [analyzer] DEBUG: Started auxiliary module Disguise
+2023-05-25 00:45:34,460 [analyzer] DEBUG: Loaded monitor into process with pid 608
+2023-05-25 00:45:34,460 [analyzer] DEBUG: Started auxiliary module DumpTLSMasterSecrets
+2023-05-25 00:45:34,460 [analyzer] DEBUG: Started auxiliary module Human
+2023-05-25 00:45:34,460 [analyzer] DEBUG: Started auxiliary module InstallCertificate
+2023-05-25 00:45:34,460 [analyzer] DEBUG: Started auxiliary module Reboot
+2023-05-25 00:45:34,460 [analyzer] DEBUG: Started auxiliary module RecentFiles
+2023-05-25 00:45:34,460 [analyzer] DEBUG: Started auxiliary module Screenshots
+2023-05-25 00:45:34,460 [modules.auxiliary.screenshots] INFO: Python Image Library (either PIL or Pillow) is not installed, screenshots are disabled.
+2023-05-25 00:45:34,460 [analyzer] DEBUG: Started auxiliary module LoadZer0m0n
+2023-05-25 00:45:36,119 [lib.api.process] INFO: Successfully executed process from path u'C:\\Users\\alabe\\AppData\\Local\\Temp\\ad6dd5d6218a1ddd8ec9d6bcfd2e5802b4b6a39f86dc67acd61a6273fad94ba4.exe' with arguments '' and pid 4428
+2023-05-25 00:45:36,736 [analyzer] DEBUG: Loaded monitor into process with pid 4428
+2023-05-25 00:45:40,065 [analyzer] INFO: Process with pid 4428 has terminated
+2023-05-25 00:45:40,065 [analyzer] INFO: Process list is empty, terminating analysis.
+2023-05-25 00:45:41,168 [analyzer] INFO: Analysis completed.

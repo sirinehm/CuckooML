@@ -1,0 +1,125 @@
+2023-05-25 14:38:39,925 [cuckoo.core.scheduler] INFO: Task #212: acquired machine win10 (label=win10)
+2023-05-25 14:38:39,925 [cuckoo.core.resultserver] DEBUG: Now tracking machine 192.168.56.101 for task #212
+2023-05-25 14:38:39,926 [cuckoo.core.plugins] DEBUG: Started auxiliary module: Replay
+2023-05-25 14:38:39,943 [cuckoo.auxiliary.sniffer] INFO: Started sniffer with PID 9773 (interface=vboxnet0, host=192.168.56.101)
+2023-05-25 14:38:39,943 [cuckoo.core.plugins] DEBUG: Started auxiliary module: Sniffer
+2023-05-25 14:38:39,981 [cuckoo.machinery.virtualbox] DEBUG: Starting vm win10
+2023-05-25 14:38:40,289 [cuckoo.machinery.virtualbox] DEBUG: Restoring virtual machine win10 to Snapshot1
+2023-05-25 14:42:27,515 [cuckoo.core.guest] INFO: Starting analysis #212 on guest (id=win10, ip=192.168.56.101)
+2023-05-25 14:42:28,518 [cuckoo.core.guest] DEBUG: win10: not ready yet
+2023-05-25 14:42:29,522 [cuckoo.core.guest] DEBUG: win10: not ready yet
+2023-05-25 14:42:30,524 [cuckoo.core.guest] DEBUG: win10: not ready yet
+2023-05-25 14:42:30,616 [cuckoo.core.guest] DEBUG: win10: not ready yet
+2023-05-25 14:43:01,745 [cuckoo.core.guest] INFO: Guest is running Cuckoo Agent 0.10 (id=win10, ip=192.168.56.101)
+2023-05-25 14:43:24,256 [cuckoo.core.guest] DEBUG: Uploading analyzer to guest (id=win10, ip=192.168.56.101, monitor=latest, size=3884763)
+2023-05-25 14:44:11,480 [cuckoo.core.resultserver] DEBUG: Task #212: live log analysis.log initialized.
+2023-05-25 14:44:17,825 [cuckoo.core.resultserver] DEBUG: Task #212 is sending a BSON stream
+2023-05-25 14:44:19,811 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:44:25,822 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:44:31,831 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:44:37,842 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:44:43,854 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:44:43,856 [cuckoo.core.guest] DEBUG: win10: analysis #212 still processing
+2023-05-25 14:44:49,866 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:44:55,878 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:45:01,889 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:45:07,898 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:45:13,908 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:45:13,909 [cuckoo.core.guest] DEBUG: win10: analysis #212 still processing
+2023-05-25 14:45:14,912 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:15,916 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:16,922 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:17,929 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:18,933 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:18,937 [cuckoo.core.guest] DEBUG: win10: analysis #212 still processing
+2023-05-25 14:45:19,941 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:25,952 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:45:31,959 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:45:32,963 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:33,967 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:33,968 [cuckoo.core.guest] DEBUG: win10: analysis #212 still processing
+2023-05-25 14:45:34,971 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:35,977 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:41,986 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:45:47,996 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:45:49,039 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:49,041 [cuckoo.core.guest] DEBUG: win10: analysis #212 still processing
+2023-05-25 14:45:50,086 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:51,436 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:45:57,520 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:46:03,530 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:46:04,537 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:04,538 [cuckoo.core.guest] DEBUG: win10: analysis #212 still processing
+2023-05-25 14:46:05,542 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:06,547 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:07,552 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:13,562 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:46:19,572 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:46:19,575 [cuckoo.core.guest] DEBUG: win10: analysis #212 still processing
+2023-05-25 14:46:20,579 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:21,584 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:22,590 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:23,597 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:29,606 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:46:29,608 [cuckoo.core.guest] DEBUG: win10: analysis #212 still processing
+2023-05-25 14:46:35,617 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:46:36,621 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:37,627 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:38,632 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:39,637 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:39,638 [cuckoo.core.guest] DEBUG: win10: analysis #212 still processing
+2023-05-25 14:46:45,646 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:46:51,655 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:46:52,660 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:53,669 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:54,675 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:46:54,677 [cuckoo.core.guest] DEBUG: win10: analysis #212 still processing
+2023-05-25 14:46:55,785 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:47:01,795 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:47:08,170 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:47:09,427 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:47:10,434 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:47:10,437 [cuckoo.core.guest] DEBUG: win10: analysis #212 still processing
+2023-05-25 14:47:11,441 [cuckoo.core.guest] WARNING: Virtual Machine /status failed. This can indicate the guest losing network connectivity
+2023-05-25 14:47:17,463 [cuckoo.core.guest] ERROR: Virtual machine /status failed. HTTPConnectionPool(host='192.168.56.101', port=8000): Read timed out. (read timeout=5)
+2023-05-25 14:47:18,466 [cuckoo.core.guest] INFO: win10: end of analysis reached!
+2023-05-25 14:47:18,474 [cuckoo.core.plugins] DEBUG: Stopped auxiliary module: Replay
+2023-05-25 14:47:18,570 [cuckoo.core.plugins] DEBUG: Stopped auxiliary module: Sniffer
+2023-05-25 14:47:18,571 [cuckoo.machinery.virtualbox] DEBUG: Stopping vm win10
+2023-05-25 14:47:19,909 [cuckoo.core.resultserver] DEBUG: Stopped tracking machine 192.168.56.101 for task #212
+2023-05-25 14:47:19,910 [cuckoo.core.resultserver] DEBUG: Cancel <Context for LOG> for task 212
+2023-05-25 14:47:19,915 [cuckoo.core.scheduler] DEBUG: Released database task #212
+2023-05-25 14:47:19,934 [cuckoo.core.plugins] DEBUG: Executed processing module "AnalysisInfo" for task #212
+2023-05-25 14:47:19,943 [cuckoo.core.plugins] DEBUG: Executed processing module "BehaviorAnalysis" for task #212
+2023-05-25 14:47:19,944 [cuckoo.core.plugins] DEBUG: Executed processing module "Dropped" for task #212
+2023-05-25 14:47:19,944 [cuckoo.core.plugins] DEBUG: Executed processing module "DroppedBuffer" for task #212
+2023-05-25 14:47:19,946 [cuckoo.core.plugins] DEBUG: Executed processing module "MetaInfo" for task #212
+2023-05-25 14:47:19,947 [cuckoo.core.plugins] DEBUG: Executed processing module "ProcessMemory" for task #212
+2023-05-25 14:47:19,947 [cuckoo.core.plugins] DEBUG: Executed processing module "Procmon" for task #212
+2023-05-25 14:47:19,947 [cuckoo.core.plugins] DEBUG: Executed processing module "Screenshots" for task #212
+2023-05-25 14:47:20,065 [cuckoo.core.plugins] DEBUG: Executed processing module "Static" for task #212
+2023-05-25 14:47:20,171 [cuckoo.core.plugins] DEBUG: Executed processing module "Static" for task #212
+2023-05-25 14:47:20,641 [cuckoo.core.plugins] ERROR: Failed to run the processing module "Static" for task #212:
+Traceback (most recent call last):
+  File "/home/cuckoo/.virtualenvs/cuckoo-cuckoo/lib/python2.7/site-packages/cuckoo/core/plugins.py", line 246, in process
+    data = current.run()
+  File "/home/cuckoo/.virtualenvs/cuckoo-cuckoo/lib/python2.7/site-packages/cuckoo/processing/importsML.py", line 225, in run
+    for import_dict in importsML["pe_imports"]:
+KeyError: 'pe_imports'
+2023-05-25 14:47:20,763 [cuckoo.core.plugins] DEBUG: Executed processing module "Static" for task #212
+2023-05-25 14:47:20,888 [cuckoo.core.plugins] DEBUG: Executed processing module "Static" for task #212
+2023-05-25 14:47:20,889 [cuckoo.core.plugins] DEBUG: Executed processing module "Static" for task #212
+2023-05-25 14:47:20,894 [cuckoo.core.plugins] DEBUG: Executed processing module "Strings" for task #212
+2023-05-25 14:47:20,932 [cuckoo.core.plugins] DEBUG: Executed processing module "TargetInfo" for task #212
+2023-05-25 14:47:24,217 [cuckoo.core.plugins] DEBUG: Executed processing module "NetworkAnalysis" for task #212
+2023-05-25 14:47:24,217 [cuckoo.core.plugins] DEBUG: Executed processing module "Extracted" for task #212
+2023-05-25 14:47:24,218 [cuckoo.core.plugins] DEBUG: Executed processing module "TLSMasterSecrets" for task #212
+2023-05-25 14:47:24,218 [cuckoo.core.plugins] DEBUG: Executed processing module "networkML" for task #212
+2023-05-25 14:47:24,222 [cuckoo.core.plugins] DEBUG: Executed processing module "Debug" for task #212
+2023-05-25 14:47:24,238 [cuckoo.core.plugins] DEBUG: Running 542 signatures
+2023-05-25 14:47:24,332 [cuckoo.core.plugins] DEBUG: Analysis matched signature: dead_host
+2023-05-25 14:47:24,332 [cuckoo.core.plugins] DEBUG: Analysis matched signature: nolookup_communication
+2023-05-25 14:47:24,338 [cuckoo.core.plugins] DEBUG: Executed reporting module "JsonDump"
+2023-05-25 14:47:26,452 [cuckoo.core.plugins] DEBUG: Executed reporting module "MongoDB"
+2023-05-25 14:47:26,452 [cuckoo.core.scheduler] INFO: Task #212: reports generation completed
+2023-05-25 14:47:26,489 [cuckoo.core.scheduler] INFO: Task #212: analysis procedure completed

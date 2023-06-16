@@ -1,0 +1,73 @@
+{% load analysis_tags %}
+<section id="file">
+      {% if report.analysis.target.file_id %}
+    <div class="panel-heading" style="height: 40px">
+        <h4 class="panel-title">Detection with API calls</h4>
+    </div>
+    {% endif %}
+  <div class="panel panel-default">
+
+    <div class="panel-heading" style="background-color:skyblue;">
+        Sammury
+    </div>
+    
+
+    <table class="table table-striped">
+      <tr>
+        <th class="text-left">Family</th>
+        <td>
+          <ul style="margin-bottom: 0">
+            <li>{{ report.analysis.dynamicML.family }}</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="text-left">Confidence</th>
+        <td>
+          <ul style="margin-bottom: 0">
+            <li>{{ report.analysis.dynamicML.confidence }}</li>
+          </ul>
+        </td>
+      </tr>
+
+      <tr>
+        <th class="text-left">probabilities</th>
+        <td>
+          {% if report.analysis.dynamicML.proba %}
+          <ul style="margin-bottom: 0">
+            {% for proba_list in report.analysis.dynamicML.proba %}
+                {% if '0.0' not in proba_list %}
+                  <li> 
+                        {{ proba_list }} 
+                  </li>
+                {% endif %}
+            {% endfor %}
+          </ul>
+          {% else %} None probabilities {% endif %}
+        </td>
+      </tr>
+
+        <tr>
+        <th class="text-left">List API Calls</th>
+        <td>
+          {% if report.analysis.dynamicML.api_keys %}
+          <ul style="margin-bottom: 0">
+            {% for list_api in report.analysis.dynamicML.api_keys %}
+                  <li> 
+                        {{ list_api }} 
+                  </li>
+            {% endfor %}
+          </ul>
+          {% else %} None probabilities {% endif %}
+        </td>
+      </tr>
+
+
+    </table>
+  </div>
+
+         
+</section>
+<br>
+<hr>
